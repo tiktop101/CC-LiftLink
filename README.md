@@ -1,6 +1,5 @@
 # CC:LiftLink
 
-/*
  * CC:LiftLink by Tom
  * Copyright (c) 2026 Tom
  * Licensed under the Mozilla Public License 2.0
