@@ -28,7 +28,7 @@ build/libs/
 ## Peripheral methods
 - ```listFloors()```
 - ```callToFloor(name)```
-- ```callToY(y)```
+- ```callToY(y)``` *also can use a y coordinate for secret floors like ```callToY(-20)``` for example*  
 - ```getState()``` 
 - ```getFloors()``` 
 - ```getCurrentLevel()``` 
