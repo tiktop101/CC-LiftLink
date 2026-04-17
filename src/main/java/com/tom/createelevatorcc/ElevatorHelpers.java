@@ -214,6 +214,18 @@ public final class ElevatorHelpers {
         return true;
     }
 
+    public static boolean callToArbitraryY(Level level, ElevatorColumn column, BlockPos originPos, int y) {
+        ElevatorPulleyBlockEntity pulley = resolvePulley(level, originPos);
+        if (pulley == null) return false;
+        AbstractContraptionEntity attached = pulley.getAttachedContraption();
+        if (!(attached instanceof ControlledContraptionEntity controlled)) return false;
+        if (!(controlled.getContraption() instanceof ElevatorContraption contraption)) return false;
+        if (contraption.isTargetUnreachable(y)) return false;
+        column.target(y);
+        column.markDirty();
+        return true;
+    }
+
     public static Integer getCurrentTargetY(Level level, ElevatorPulleyBlockEntity pulley) {
         if (pulley == null) return null;
         AbstractContraptionEntity attached = pulley.getAttachedContraption();

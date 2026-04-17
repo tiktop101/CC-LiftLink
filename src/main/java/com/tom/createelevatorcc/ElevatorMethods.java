@@ -161,8 +161,9 @@ public class ElevatorMethods implements GenericPeripheral {
     private static boolean callToY0(Level level, net.minecraft.world.level.block.entity.BlockEntity be, int y) throws LuaException {
         ElevatorColumn column = requireColumn(level, be);
         ElevatorContactBlockEntity target = ElevatorHelpers.findContactByY(level, column, y);
-        if (target == null) throw new LuaException("No floor at Y=" + y);
-        return ElevatorHelpers.callTo(level, column, target);
+        if (target != null) return ElevatorHelpers.callTo(level, column, target);
+        if (ElevatorHelpers.callToArbitraryY(level, column, be.getBlockPos(), y)) return true;
+        throw new LuaException("Y=" + y + " is not a real floor and is outside the elevator travel range");
     }
 
     private static boolean callToFloor0(Level level, net.minecraft.world.level.block.entity.BlockEntity be, String floorName) throws LuaException {
