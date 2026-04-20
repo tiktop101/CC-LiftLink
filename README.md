@@ -6,7 +6,7 @@
 
 Forge 1.20.1 mod which exposes Create elevator **redstone contacts** as a CC:Tweaked peripheral named `create_elevator`.
 
-Pulley tracking is optional. The main setup only needs one linked elevator contact to work.
+The main setup only needs one linked elevator contact to work.
 
 ## Included
 - full source
